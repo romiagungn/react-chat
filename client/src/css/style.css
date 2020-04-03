@@ -1,0 +1,87 @@
+body {
+    margin: 0 auto;
+    max-width: 70%;
+    height: 100%;
+    padding: 0 20px;
+    margin-top: 0 !important;
+}
+
+.card-edit {
+    box-shadow: 0 4px 8px 0 #CACFD2;
+    padding: 16px;
+    text-align: center;
+    height: 21cm;
+    background-color: #CACFD2;
+    position: relative;
+}
+.bg-light {
+    box-shadow: 0 4px 8px 0 #CACFD2;
+    padding: 16px;
+    text-align: center;
+    background-color: #8c5bee;
+    position: relative;
+}
+.edit {
+    box-shadow: 0 4px 8px 0 rgba(173, 21, 21, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #8c5bee;
+    position: relative;
+}
+
+.name {
+    color: rgba(0, 0, 0, 0.54);
+    font-weight: bold;
+    margin-top: auto;
+}
+
+.chat {
+    margin-bottom: auto;
+}
+
+.btn-circle {
+    width: 80px;
+    height: 70px;
+    padding: 10px 16px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 35px;
+}
+
+.media-body {
+    width: auto;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    width: 5px;
+    background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 1em;
+    background-color: #ddd;
+    outline: 1px solid slategrey;
+    border-radius: 1rem;
+}
+
+.text-small {
+    font-size: 0.9rem;
+}
+
+.messages-box, .chat-box {
+    height: 510px;
+    overflow-y: scroll;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+input::placeholder {
+    font-size: 0.9rem;
+    color: #999;
+}
