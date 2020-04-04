@@ -4,11 +4,9 @@ var chat = require('../models/chat')
 
 /* GET users listing. */
 router.get('/', (req, res) => {
-  chat.find().sort({createdAt: -1}).exec((err, chatItem)=>{
+  chat.find({}, (err, chats)=>{
     if(err) return res.status(500).json({err})
-    res.status(200).json({
-      chatList : chatItem
-    })
+    res.status(200).json(chats)
   })
 });
 
