@@ -7,7 +7,7 @@ import axios from 'axios';
 // import ChatList from './ChatList';
 
 const request = axios.create({
-    baseURL: 'http://localhost:3000/api/',
+    baseURL: 'http://localhost:3001/api/',
     timeout: 1000,
     headers: { 'X-Custom-Header': 'foobar' }
 });
@@ -18,7 +18,6 @@ export default class ChatBox extends Component {
 
         this.state = {
             data: [],
-            color: [192, 132, 153]
         };
 
         this.addChat = this.addChat.bind(this)
@@ -29,7 +28,7 @@ export default class ChatBox extends Component {
         this.messagesEnd.scrollIntoView({ behavior: "smooth" });
     }
 
-    componentDidMount() {
+    scroll() {
         this.scrollToBottom();
     }
 
@@ -81,17 +80,10 @@ export default class ChatBox extends Component {
             })
     }
 
-    // Always make sure the window is scrolled down to the last message.
-    scrollToBottom() {
-        const chat = document.getElementById('chat');
-        chat.scrollTop = chat.scrollHeight;
-    }
-
     render() {
 
-
         return (
-            <div className="py-5">
+            <div className="py-5" >
                 <div className="card">
                     <h2 className="card-header text-center">React Chat App</h2>
                 </div>
