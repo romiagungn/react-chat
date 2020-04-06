@@ -23,7 +23,7 @@ export default function ChatItem(props) {
                                 <button className="btn btn-link px-0 py-0" onClick={() => props.remove(props.id)}><i className="fas fa-trash fa-lg"></i></button>
                             </div>
                             <div className="d-flex justify-content-between chat ">
-                                <ReactMarkdown source={props.chat.chat} />
+                            <ReactMarkdown source={props.chat.chat} className="mb-0 text-small" />
                             </div>
                         </div>
                     </div>
