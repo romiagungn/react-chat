@@ -101,8 +101,31 @@ export default class ChatBox extends Component {
             })
     }
 
-    render() {
+    resendChat = (chatData) => {
+        request.post(`chats`, chatData)
+            .then((response) => {
+                this.setState((state) => ({
+                    data: state.data.map(item => {
+                        if (item.id === chatData.id) {
+                            item.sent = true;
+                        }
+                        return item;
+                    })
+                }))
+            })
+            .catch((err) => {
+                this.setState((state) => ({
+                    data: state.data.map(item => {
+                        if (item.id === chatData.id) {
+                            item.sent = false;
+                        }
+                        return item;
+                    })
+                }));
+            })
+    }
 
+    render() {
         return (
             <div className="py-5" >
                 <div className="card">
@@ -111,7 +134,7 @@ export default class ChatBox extends Component {
                 <div className="column">
                     <div className="card-edit">
                         <div className="scrollable" style={{ maxHeight: '67vh', overflowY: 'auto' }}>
-                            <ChatList data={this.state.data} deleteChat={this.deleteChat} />
+                            <ChatList data={this.state.data} deleteChat={this.deleteChat} resendChat = {this.resendChat} />
                             <div style={{ float: "left", clear: "both" }}
                                 ref={(el) => { this.messagesEnd = el; }}>
                             </div>
