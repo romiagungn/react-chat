@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/style.css'
+import '../css/timeline.css'
 import ReactMarkdown from 'react-markdown';
 import { randomColor } from './helpers';
 
@@ -11,22 +12,33 @@ export default function ChatItem(props) {
         textAlign: 'center',
         fontSize: '24px',
     }
+    const timestamp = props.chat.id
     return (
-        <div className="">
-            <div className="py-2">
-                <div className="media w-100 mb-2">
-                    <button className="btn-circle2 btn-lg with-border" style={style} ><i className="fas fa-user fa-2x"></i></button>
-                    <div className="media-body ml-5 bg-blue">
-                        <div className="arrow_box py-2 px-3">
-                            <div className="d-flex justify-content-between name d-flex " >
-                                <h5>{props.chat.nama}</h5>
-                                <button className="btn btn-link px-0 py-0" onClick={props.chat.sent ? props.remove : props.resend} >
-                                    {props.chat.sent ? <i className="fas fa-trash fa-lg"></i> : '<i className="fas fa-repeat fa-lg"></i>'}
+        <div className="container py-2">
+            <div className="qa-message-list" id="wallmessages">
+                <div className="message-item" id="m16">
+                    <div className="message-inner">
+                        <div className="message-head clearfix">
+                            <div className="avatar pull-left"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" /></div>
+                            <div className="user-detail">
+                                <div className="d-flex justify-content-between name d-flex handle" >
+                                    <h5>{props.chat.nama}</h5>
+                                    <button className="btn btn-link px-0 py-0" onClick={props.chat.sent ? props.remove : props.resend} >
+                                        {props.chat.sent ? <i className="fas fa-trash" ></i> : '<i className="fas fa-repeat fa-lg"></i>'}
                                     </button>
+                                </div>
+                                <div className="post-meta">
+                                    <div className="asker-meta">
+                                        <span className="qa-message-what"></span>
+                                        <span className="qa-message-when">
+                                            <span className="qa-message-when-data">{ Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(timestamp) }</span>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="d-flex justify-content-between chat ">
-                            <ReactMarkdown source={props.chat.chat} className="mb-0 text-small" />
-                            </div>
+                        </div>
+                        <div className="qa-message-content">
+                            <ReactMarkdown source={props.chat.chat} classNameName="mb-0 text-small" />
                         </div>
                     </div>
                 </div>

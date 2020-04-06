@@ -1,6 +1,6 @@
 body {
     margin: 0 auto;
-    width: 60%;
+    width: 50%;
     height: 100%;
     padding: 0 20px;
     margin-top: 0 !important;
@@ -9,9 +9,8 @@ body {
 .card-edit {
     box-shadow: 0 4px 8px 0 #CACFD2;
     padding: 16px;
-    text-align: center;
     height: 100%;
-    background-color: #CACFD2;
+    background-color: rgb(138, 133, 133);
     position: relative;
 }
 
@@ -100,5 +99,4 @@ input::placeholder {
     bottom: 0;
     width: 100%;
     height: 100%;
-    text-align: center;
 }
