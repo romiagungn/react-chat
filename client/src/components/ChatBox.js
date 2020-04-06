@@ -30,14 +30,27 @@ export default class ChatBox extends Component {
         this.messagesEnd.scrollIntoView({ behavior: "smooth" });
     }
 
+    componentDidMount() {
+        this.loadChat();
+        this.scrollToBottom();
+
+        socket.emit("delete chat", "dikirim");
+
+        socket.on("load chat", () => {
+            this.loadChat();
+        });
+
+        socket.on("delete chat", (id) => {
+            this.setState((state) => ({
+                data: state.data.filter((chatData) => chatData.id !== id),
+            }));
+        });
+    }
+
     componentDidUpdate() {
         this.scrollToBottom();
     }
 
-    componentDidMount() {
-        this.loadChat();
-        this.scrollToBottom();
-    }
 
     loadChat = () => {
         request.get('chats')
@@ -59,7 +72,8 @@ export default class ChatBox extends Component {
         }));
         request.post(`chats`, chatData)
             .then((response) => {
-                console.log(response)
+                console.log('Data Berhasil di tambahkan')
+                socket.emit("add chat");
             })
             .catch((err) => {
                 this.setState((state) => ({
@@ -80,6 +94,7 @@ export default class ChatBox extends Component {
         request.delete(`chats/${id}`)
             .then((response) => {
                 console.log('Data Berhasil Dihapus')
+                socket.emit('delete chat', id)
             })
             .catch((err) => {
                 alert(err)

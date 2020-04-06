@@ -53,10 +53,10 @@ io.on("connection", function (socket) {
         socket.broadcast.emit("load chat");
     });
 
-    // socket.on("delete chat", (id) => {
-    //     console.log(id)
-        // socket.broadcast.emit("delete chat", id);
-    // });
+    socket.on("delete chat", (id) => {
+        console.log(id)
+        socket.broadcast.emit("delete chat", id);
+    });
 });
 
 /**
