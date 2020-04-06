@@ -18,7 +18,7 @@ export default class ChatFrom extends Component {
 
     handleSubmit(event) {
         const id = Date.now()
-        this.props.addChat({ id, nama: this.state.nama, chat: this.state.chat })
+        this.props.addChat({ id, nama: this.state.nama, chat: this.state.chat, sent: true })
         this.setState({ chat: '' })
         // alert('A name was submitted: ' + this.state.value);
         event.preventDefault();

@@ -4,7 +4,9 @@ import ChatList from './ChatList';
 // import ChatItem from './ChatItem';
 import '../css/style.css';
 import axios from 'axios';
-// import ChatList from './ChatList';
+import io from "socket.io-client";
+
+const socket = io("http://localhost:3001")
 
 const request = axios.create({
     baseURL: 'http://localhost:3001/api/',
@@ -28,19 +30,23 @@ export default class ChatBox extends Component {
         this.messagesEnd.scrollIntoView({ behavior: "smooth" });
     }
 
-    scroll() {
-        this.scrollToBottom();
-    }
-
     componentDidUpdate() {
         this.scrollToBottom();
     }
 
     componentDidMount() {
+        this.loadChat();
+        this.scrollToBottom();
+    }
+
+    loadChat = () => {
         request.get('chats')
             .then((response) => {
                 console.log(response)
-                this.setState({ data: response.data })
+                let chatData = response.data.map((chats) => {
+                    return { ...chats, sent: true };
+                });
+                this.setState({ data: chatData })
             })
             .catch((err) => {
                 alert(err)

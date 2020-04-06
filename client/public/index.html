@@ -43,32 +43,6 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
   <title>React App</title>
-
-  <style>
-    .with-border {
-      border-bottom: 2px solid #dbd9d9;
-      border-left: 1px solid #f2f2f2;
-      border-right: 1px solid #f2f2f2;
-      border-top: 1px solid #f2f2f2;
-      background-color: #f9f9f9;
-    }
-
-    .with-border:hover {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-    }
-
-    @media (max-width:992px) {
-      .with-border {
-        margin: 20px 10px;
-      }
-    }
-
-    .with-border h2 {
-      font-size: 65px;
-    }
-  </style>
-
 </head>
 
 <body>
@@ -84,24 +58,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  <script>
-    $('.fa').each(function () {
-      $(this).css('color', randomColor());
-    });
-
-    var colors = ['00', '33', '66', '99', 'cc', 'ff'];
-    var rand = function () {
-      return Math.floor(Math.random() * 10);
-    };
-
-    var randomColor = function () {
-      var r = colors[rand()];
-      var g = colors[rand()];
-      var b = colors[rand()];
-      return "#" + r + g + b;
-    };
-
-  </script>
 </body>
 
 </html>
