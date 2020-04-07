@@ -28,7 +28,7 @@ export default class ChatFrom extends Component {
         return (
             <form className="footer" onSubmit={this.handleSubmit}>
                 <div className="card" >
-                    <li className="list-group-item borderless d-flex  align-items-center">
+                    <li className="list-group-item borderless d-flex  align-items-center li">
                         <div className="speech-bubble col-3">
                             <div className="form-label-group mb-0">
                                 <input type="text" name="nama" className="form-control border-2 py-4 bg-light " placeholder="Name" required={true}

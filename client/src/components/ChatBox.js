@@ -132,7 +132,7 @@ export default class ChatBox extends Component {
                     <h2 className="card-header text-center">React Chat App</h2>
                 </div>
                 <div className="column">
-                    <div className="card-edit">
+                    <div className="gambar">
                         <div className="scrollable" style={{ maxHeight: '67vh', overflowY: 'auto' }}>
                             <ChatList data={this.state.data} deleteChat={this.deleteChat} resendChat = {this.resendChat} />
                             <div style={{ float: "left", clear: "both" }}

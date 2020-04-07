@@ -24,7 +24,7 @@ export default function ChatItem(props) {
                                 <div className="d-flex justify-content-between name d-flex handle" >
                                     <h5>{props.chat.nama}</h5>
                                     <button className="btn btn-link px-0 py-0" onClick={props.chat.sent ? props.remove : props.resend} >
-                                        {props.chat.sent ? <i className="fas fa-trash" ></i> : '<i className="fas fa-repeat fa-lg"></i>'}
+                                        {props.chat.sent ? <i className="fas fa-trash" ></i> : <i className="fas fa-repeat fa-lg"></i>}
                                     </button>
                                 </div>
                                 <div className="post-meta">
